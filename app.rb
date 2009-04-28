@@ -1,10 +1,12 @@
 require 'rubygems'
 require 'sinatra'
 require 'config/database'
+require 'helpers/sinatra'
 
 enable :sessions
 
 get '/' do
+  @u = session[:user]
   haml :index
 end
 

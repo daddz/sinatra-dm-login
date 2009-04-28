@@ -1,4 +1,4 @@
-require 'helpers/general'
+require 'helpers/helpers'
 require 'digest/sha1'
 require 'dm-validations'
 require 'date'
@@ -17,7 +17,7 @@ class User
 
   def password=(pass)
     @password = pass
-    self.salt = random_string(10) unless self.salt
+    self.salt = Helpers::random_string(10) unless self.salt
     self.hashed_password = User.encrypt(@password, self.salt)
   end
 
