@@ -1,4 +1,4 @@
-require 'helpers/helpers'
+require './helpers/helpers'
 require 'digest/sha1'
 require 'dm-validations'
 require 'date'
@@ -6,14 +6,14 @@ require 'date'
 class User
   include DataMapper::Resource
   
-  property :id,			Integer, 	:serial => true
-  property :login,		String,  	:key => true, :length => (3..40), :nullable => false
+  property :id,			          Serial
+  property :login,		        String, :key => true, :length => (3..40), :required => true
   property :hashed_password, 	String
-  property :email,		String,		:format => :email_address
-  property :salt,		String
-  property :created_at,		DateTime,	:default => DateTime.now
+  property :email,		        String,	:format => :email_address
+  property :salt,		          String
+  property :created_at,		    DateTime,	:default => DateTime.now
   
-  validates_present :login, :email
+  validates_presence_of :login, :email
 
   def password=(pass)
     @password = pass

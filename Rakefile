@@ -1,9 +1,10 @@
 require 'rubygems'
 require 'sinatra'
 require 'dm-core'
+require 'dm-migrations'
 
 namespace :db do
-  require 'config/database'
+  require './config/database'
 
   desc "Migrate the database"
   task :migrate do
