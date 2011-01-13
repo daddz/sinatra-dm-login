@@ -34,8 +34,9 @@ If you have anything you want to see in this example, go ahead and let me know!
 ## Test users
 
 The following dummy users get created:
-    - name: test | password: pw
-    - name: foo  | password: bar
+- name: test | password: pw
+
+- name: foo  | password: bar
 
 ## Thanks
 
