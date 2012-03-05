@@ -12,8 +12,9 @@ class User
   property :email,		        String,	:format => :email_address
   property :salt,		          String
   property :created_at,		    DateTime,	:default => DateTime.now
-  
-  validates_presence_of :login, :email
+ 
+  attr_accessor :password
+  validates_presence_of :login, :email, :password
 
   def password=(pass)
     @password = pass
